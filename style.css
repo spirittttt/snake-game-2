@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+html,body {
+    width: 100%;
+    height: 100%;
+}
+::selection {
+    background-color: transparent;
+}
+#main {
+    width: 100%;
+    height: 100vh;
+    background-color: cadetblue;
+    display: flex;
+    align-items : center;
+    justify-content : center;
+}
+#container {
+    width: 40vw;
+    height: 40vw;
+    background-color: #001219;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#scorediv {
+    width: 100%;
+    height: 5vw;
+    background-color: #283546;
+    display: flex;
+    align-items : center;
+    justify-content : space-between;
+    padding: 0 2vw;
+}
+#scorediv h2 {
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: rgb(220, 220, 220);
+}
+#board {
+    width: 100%;
+    height: calc(100% - 5vw);
+    display: grid;
+    grid-template-rows: repeat(18 , 1fr);
+    grid-template-columns: repeat(18, 1fr);
+}
+.food {
+    /* background-color: violet; */
+    background-image: url(images/apple.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.body {
+    /* background-color: aquamarine */
+    background-color: green;
+    border-radius: 35%;
+    border: 2px solid black;
+    z-index: 100;
+}
+.head {
+    /* background-color: aqua; */
+    background-image: url(images/snakehead.webp);
+    background-size: 110% 110%;
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+#difficulty-levels {
+    min-height: 10vw;
+    min-width: 10vw;
+    right: 19vw;
+    top: 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    border-radius: 10px;
+    position: absolute;
+}
+#difficulty-levels h6 {
+    color: rgb(190, 189, 189);
+    font-size: 1.15vw;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 1vw;
+}
+.color {
+    width: 1.5vw;
+    height: 1.5vw;
+    background-color: black;
+    border-radius: 50%;
+    margin-left: 1vw;
+}
+#easy {
+    height: 2.5vw;
+    display: flex;
+    align-items : center;
+    padding: 0 1vw;
+    background-color: white;
+    border-radius: 10px;
+}
+#easy .color {
+    background: linear-gradient(0deg, rgba(77,222,114,1) 0%, rgba(221,246,114,1) 100%);
+}
+.cl {
+    transition: all ease 0.3s;
+}
+.cl:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+.cl:active {
+    scale: 0.9;
+}
+#medium {
+    height: 2.5vw;
+    display: flex;
+    align-items : center;
+    padding: 0 1vw;
+    background-color: white;
+    border-radius: 10px;
+}
+#medium .color {
+    background: linear-gradient(0deg, rgba(243,255,40,1) 0%, rgba(255,167,0,1) 100%);
+}
+#hard {
+    height: 2.5vw;
+    display: flex;
+    align-items : center;
+    padding: 0 1vw;
+    background-color: white;
+    border-radius: 10px;
+}
+#hard .color{
+    background: linear-gradient(0deg, rgba(255,123,0,1) 3%, rgba(255,10,10,1) 100%);
+}
+#insane {
+    height: 2.5vw;
+    display: flex;
+    align-items : center;
+    padding: 0 1vw;
+    background-color: white;
+    border-radius: 10px;
+}
+#insane .color {
+    background: linear-gradient(0deg, rgba(255,10,10,1) 0%, rgba(0,0,0,1) 27%);
+}
+#Allbutton {
+    display: none;
+}
+
+@media (max-width: 768px){
+    ::selection {
+        background-color: none;
+    }
+    #container {
+        position: absolute;
+        top: 40vw;
+        width: 90vw;
+        height: 100vw;
+    }
+    #scorediv {
+        width: 100%;
+        height: 10vw;
+        padding: 0 3vw;
+    }
+    #scorediv h2 {
+        font-size: 3.5vw;
+        font-weight: 500;
+        color: rgb(220, 220, 220);
+    }
+    #difficulty-levels {
+        min-height: 10vw;
+        min-width: fit-content;
+        right: 7vw;
+        top: 20vw;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 2vw;
+        border-radius: 10px;
+        position: absolute;
+    }
+    #difficulty-levels h6 {
+        color: black;
+        font-size: 4vw;
+        font-weight: 500;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 1vw;
+    }
+    .color {
+        width: 3vw;
+        height: 3vw;
+        background-color: black;
+        border-radius: 50%;
+        margin-left: 1vw;
+    }
+    #easy {
+        width: 20vw;
+        height: 7vw;
+    }
+    #medium {
+        width: 20vw;
+        height: 7vw;
+    }
+    #hard {
+        width: 20vw;
+        height: 7vw;
+    }
+    #insane {
+        width: 20vw;
+        height: 7vw;
+    }
+    #Allbutton {
+        width: 42vw;
+        height: 42vw;
+        position: absolute;
+        display: block;
+        bottom: 7vw;
+    }
+    .arrows {
+        width: 13vw;
+        height: 13vw;
+        border-radius: 50%;
+        background-color: rgb(29, 29, 29);
+        display: flex;
+        align-items : center;
+        justify-content : center;
+    }
+    .arrows:active {
+        scale: 0.9;
+    }
+    .arrows i {
+        pointer-events: none;
+        font-size: 6vw;
+    }
+    #arrowup {
+        position: absolute;
+        left: 14.3vw;
+    }
+    #arrowleft {
+        position: absolute;
+        left: 0vw;
+        top: 14vw;
+    }
+    #arrowright {
+        position: absolute;
+        left: 28vw;
+        top: 14vw;
+    }
+    #arrowdown {
+        position: absolute;
+        top: 27.5vw;
+        left: 14.3vw;
+    }
+}
+@media (max-width: 600px) {
+    ::selection {
+        background-color: none;
+    }
+    #container {
+        position: absolute;
+        top: 30vw;
+        width: 90vw;
+        height: 100vw;
+    }
+    #difficulty-levels {
+        top: 15vw;
+    }
+    #Allbutton {
+        width: 42vw;
+        height: 42vw;
+        position: absolute;
+        display: block;
+        bottom: 3vw;
+        left: 30vw;
+    }
+ 
+}
